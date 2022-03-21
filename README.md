@@ -2,7 +2,7 @@
 
 # Awesome Books
 
-> In this project, we built a basic website that allows users to add/remove books from a list. We achieved this by using JavaScript objects and arrays.
+> In this project, I built a basic website that allows users to add/remove books from a list. I achieved this by using ES6 modules.
 
 ## Screenshot
 
@@ -11,27 +11,19 @@
 ## Built With
 
 - HTML
-- CSS
-- JavaScript
-
-<!-- ## Live Demo 
-
-[Live Demo Link](https://livedemo.com) -->
+- CSS/SCSS
+- JavaScript(ES6)
 
 
 ## Getting Started
 
 To get a local copy up and running follow this simple step:
 
-Clone repository to your local machine: `git@github.com:dewslyse/awesome-books-mv.git`
+- Clone repository to your local machine: `git@github.com:dewslyse/awesome-books-mv.git`
+- Run `npm install` to install dependencies
 
 
-## Authors
-
-👤 **George**
-
-- GitHub: [@Alexr16](https://github.com/Alexr16)
-
+## Author
 
 👤 **Selase**
 
@@ -56,4 +48,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](./MIT.md) licensed.
+This project is [MIT](./LICENSE) licensed.
