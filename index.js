@@ -1,7 +1,7 @@
 import Book from './modules/book.js';
 import Library from './modules/library.js';
 import Actions from './modules/actions.js';
-import { DateTime } from './modules/luxon.js';
+import { DateTime } from './luxon/luxon.js';
 
 const addBtn = document.querySelector('.add-btn');
 const addedBooks = document.querySelector('.added-books');
@@ -19,58 +19,50 @@ document.addEventListener('DOMContentLoaded', Actions.displayBooks);
 
 // Add a new book
 addBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const bookTitle = document.getElementById('title').value;
-    const bookAuthor = document.getElementById('author').value;
-    const bookId = (new Date()).getTime();
+  e.preventDefault();
+  const bookTitle = document.getElementById('title').value;
+  const bookAuthor = document.getElementById('author').value;
+  const bookId = (new Date()).getTime();
 
-    if (bookTitle === '' || bookAuthor === '') {
-        alert('Please fill in all book details');
-    } else {
-        const book = new Book(bookTitle, bookAuthor, bookId);
-        Actions.addNewBook(book);
-        Library.addBook(book);
-        Actions.resetInputs();
-    }
+  if (bookTitle === '' || bookAuthor === '') {
+    alert('Please fill in all book details');
+  } else {
+    const book = new Book(bookTitle, bookAuthor, bookId);
+    Actions.addNewBook(book);
+    Library.addBook(book);
+    Actions.resetInputs();
+  }
 });
 
 // Delete added book
 addedBooks.addEventListener('click', (e) => {
-    Actions.deleteBook(e.target);
+  Actions.deleteBook(e.target);
 });
 
 // Show different page sections
 listLink.addEventListener('click', () => {
-    booksList.classList.remove('hide');
-    contact.classList.add('hide');
-    newSection.classList.add('hide');
+  booksList.classList.remove('hide');
+  contact.classList.add('hide');
+  newSection.classList.add('hide');
 });
 
 addNewLink.addEventListener('click', () => {
-    booksList.classList.add('hide');
-    contact.classList.add('hide');
-    newSection.classList.remove('hide');
+  booksList.classList.add('hide');
+  contact.classList.add('hide');
+  newSection.classList.remove('hide');
 });
 
 contactLink.addEventListener('click', () => {
-    booksList.classList.add('hide');
-    contact.classList.remove('hide');
-    newSection.classList.add('hide');
+  booksList.classList.add('hide');
+  contact.classList.remove('hide');
+  newSection.classList.add('hide');
 });
 
-function activeLink() {
-    link.forEach((item) => item.classList.remove('active'));
-    this.classList.add('active');
-}
+link.forEach((item) => item.addEventListener('click', () => {
+  link.forEach((item) => item.classList.remove('active'));
+  item.classList.add('active');
+}));
 
-link.forEach((item) => item.addEventListener('click', activeLink));
-
-//Date function
-// const currentDate = new Date();
-// const date = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1)}-${currentDate.getDate()}`;
-// const time = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
-// const dateCurrentTime = `${date}, ${time}`;
-// dateTime.textContent = dateCurrentTime;
-
+// Luxon date and time
 const currentDate = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
 dateTime.textContent = currentDate;
