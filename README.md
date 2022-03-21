@@ -25,7 +25,7 @@ To get a local copy up and running follow this simple step:
 
 ## Author
 
-👤 **Selase**
+👤 **@dewslyse**
 
 - GitHub: [@dewslyse](https://github.com/dewslyse)
 
